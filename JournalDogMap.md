@@ -67,6 +67,16 @@ Add leaflet.css after main.css
 ```
 <link href="assets/leaflet/leaflet.css" rel="stylesheet">
 ```
+#### VS Code SCM:
+git commit : Copied leaflet folder
+
+#### srv/pages/tab-map/
+tab-map page added and added to 
+* page tabs
+* app components and module
+
+#### VS Code SCM:
+git commit : tab-map added
 
 ### Links ###
 * <https://github.com/rasor/markdown-cheatsheet>
