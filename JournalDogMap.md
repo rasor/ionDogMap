@@ -1,4 +1,4 @@
-## JournalDogMap.md
+## JournalDogMap.md ##
 ### Create project from the tabs starter project ###
 #### NodeJs Shell 0:
 ```
@@ -78,7 +78,46 @@ tab-map page added and added to
 #### VS Code SCM:
 git commit : tab-map added
 
+#### srv/pages/tab-map/
+Leaflet map added
+
+#### VS Code SCM:
+git commit : Leaflet map added
+
+## Notes ############################################
+#### ngx.leaflet.components
+* Perhaps use [ngx.leaflet.components](https://www.npmjs.com/package/ngx.leaflet.components)
+
+It is loaded via SystemJs in the instruction.
+
+* HowTo load it with tsconfig.json? Peshaps find answer below under Bundlers
+
+* [Sample using ngx.leaflet.components](https://github.com/elasticrash/Angular.io.MapViewer)
+
+It both uses system.config.js and tsconfig.js
+
+* ngx.leaflet.components depends on [@types/leaflet](https://www.npmjs.com/package/@types/leaflet)
+
+* [ngx-leaflet-starter](https://github.com/haoliangyu/ngx-leaflet-starter) - another leaflet sample
+
+* [leaflet.vectorgrid](https://www.npmjs.com/package/leaflet.vectorgrid) - a leaflet extension for making your own vector layers
+
+* [Leaflet.Icon.Glyph](https://github.com/Leaflet/Leaflet.Icon.Glyph) - add your own icons to [map pointers](https://leaflet.github.io/Leaflet.Icon.Glyph/demo.html)
+
+### Bundlers (SystemJs, WebPack, Browserify) ###
+* Notes on [SystemJs](https://stackoverflow.com/questions/38263406/what-are-differences-between-systemjs-and-webpack)
+
+* Guide for [jQWidgets using SystemJs and TsConfig](http://www.jqwidgets.com/jquery-widgets-documentation/documentation/angular2/angular2.htm)
+
+* A little note on [Bundles in Ionic](https://www.npmjs.com/package/ionic-angular): _SystemJS bundle is primarily meant to be included in a `<script>` tag for demos_.
+
+* [ts-helpers](https://npm.taobao.org/package/ts-helpers) might be needed for compiling?
+
 ### Links ###
-* <https://github.com/rasor/markdown-cheatsheet>
+* [markdown-cheatsheet](https://github.com/rasor/markdown-cheatsheet)
+* Book: [angular-2-from-theory-to-practice](https://codecraft.tv/assets/resources/angular-2-from-theory-to-practice-v1.0.1.pdf)
+* [ng2 UI components](https://ng2-ui.github.io/dist/#/getting-started)
+* [jQWidgets for ng4](http://www.jqwidgets.com/angular/)
+* [RunKit](https://npm.runkit.com/angular2-leaflet) for exec node.js scripts having 400k npm packages pre installed.
 
 The end.
