@@ -12,6 +12,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//npm
+//import { CandTLeafletComponent  } from 'ngx.leaflet.components';
+//import { CandTLeafletService } from 'ngx.leaflet.components';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabMapPage,
     TabsPage
+    //, CandTLeafletComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    //CandTLeafletService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

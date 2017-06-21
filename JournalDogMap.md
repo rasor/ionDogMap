@@ -83,6 +83,7 @@ Leaflet map added
 
 #### VS Code SCM:
 git commit : Leaflet map added
+git commit : ngx.leaflet.components not yet working with ionic
 
 ## Notes ############################################
 #### ngx.leaflet.components
@@ -105,6 +106,8 @@ It both uses system.config.js and tsconfig.js
 * [Leaflet.Icon.Glyph](https://github.com/Leaflet/Leaflet.Icon.Glyph) - add your own icons to [map pointers](https://leaflet.github.io/Leaflet.Icon.Glyph/demo.html)
 
 ### Bundlers (SystemJs, WebPack, Browserify) ###
+* [tsconfig fix for Cannot find name 'module'](https://stackoverflow.com/questions/36700693/typescript-error-in-angular2-code-cannot-find-name-module) using `typeRoots`
+
 * Notes on [SystemJs](https://stackoverflow.com/questions/38263406/what-are-differences-between-systemjs-and-webpack)
 
 * Guide for [jQWidgets using SystemJs and TsConfig](http://www.jqwidgets.com/jquery-widgets-documentation/documentation/angular2/angular2.htm)
