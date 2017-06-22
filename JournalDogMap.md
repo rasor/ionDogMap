@@ -92,6 +92,7 @@ ionic generate provider geolocation
 
 #### VS Code SCM:
 git commit : mapDefaults added, GeolocationProvider added
+git commit : GeolocationProvider.getLocation() called in map
 
 ## Notes ############################################
 #### ngx.leaflet.components
@@ -132,6 +133,9 @@ It both uses system.config.js and tsconfig.js
 * [Starters, plugins and themes](https://market.ionic.io/starters/)
 * [Augmented Reality starter](https://market.ionic.io/starters/wikitude-ionic-2-starter-app)
 * [ionic generate](https://ionicframework.com/docs/cli/generate/)
+* [How to debug Typescript in Ionic 2 Apps using VS Code](https://forum.ionicframework.com/t/how-to-debug-typescript-in-ionic-2-apps-using-vs-code-and-app-scripts-0-0-46/70023/1) - Well - instead just set debug in chrome. It will still break in your .ts files.
+* [Only inject service provider in parent component](https://ionicframework.com/docs/troubleshooting/#multiple-instances-of-a-provider)
+* [Custum ionic/ng2 npm module](https://github.com/ionic-team/ionic-module-template)
 * [getLocation using plugin](http://tphangout.com/ionic-2-geolocation-and-geocoding/)
 * Don't use [npm install typings](http://blog.ionic.io/ionic-and-typings/)
 #### ng 2
@@ -142,7 +146,8 @@ It both uses system.config.js and tsconfig.js
 * [ng4 google maps component](https://angular-maps.com/guides/getting-started/)
 * [ng4 google maps sample](https://github.com/robisim74/angular-maps)
 * [ng2 getLocation sample](https://gist.github.com/sasha7/0c32f3686eb49d44ccc8)
-* [Only inject service provider in parent component](https://ionicframework.com/docs/troubleshooting/#multiple-instances-of-a-provider)
+#### ng 1
+* [[ng1 getLocation using promise module](https://github.com/arunisrael/angularjs-geolocation/blob/master/src/geolocation.js) - used in ionCrawling
 #### Other
 * [RunKit](https://npm.runkit.com/angular2-leaflet) for exec node.js scripts having 400k npm packages pre installed.
 
