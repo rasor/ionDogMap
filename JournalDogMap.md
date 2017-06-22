@@ -85,6 +85,14 @@ Leaflet map added
 git commit : Leaflet map added
 git commit : ngx.leaflet.components not yet working with ionic
 
+#### VS Code Shell 1:
+```
+ionic generate provider geolocation
+```
+
+#### VS Code SCM:
+git commit : mapDefaults added, GeolocationProvider added
+
 ## Notes ############################################
 #### ngx.leaflet.components
 * Perhaps use [ngx.leaflet.components](https://www.npmjs.com/package/ngx.leaflet.components)
@@ -106,6 +114,8 @@ It both uses system.config.js and tsconfig.js
 * [Leaflet.Icon.Glyph](https://github.com/Leaflet/Leaflet.Icon.Glyph) - add your own icons to [map pointers](https://leaflet.github.io/Leaflet.Icon.Glyph/demo.html)
 
 ### Bundlers (SystemJs, WebPack, Browserify) ###
+* [Ionic app-scripts](https://ionicframework.com/docs/developer-resources/app-scripts/) - gulp replacement
+
 * [tsconfig fix for Cannot find name 'module'](https://stackoverflow.com/questions/36700693/typescript-error-in-angular2-code-cannot-find-name-module) using `typeRoots`
 
 * Notes on [SystemJs](https://stackoverflow.com/questions/38263406/what-are-differences-between-systemjs-and-webpack)
@@ -118,9 +128,22 @@ It both uses system.config.js and tsconfig.js
 
 ### Links ###
 * [markdown-cheatsheet](https://github.com/rasor/markdown-cheatsheet)
+#### Ionic 2
+* [Starters, plugins and themes](https://market.ionic.io/starters/)
+* [Augmented Reality starter](https://market.ionic.io/starters/wikitude-ionic-2-starter-app)
+* [ionic generate](https://ionicframework.com/docs/cli/generate/)
+* [getLocation using plugin](http://tphangout.com/ionic-2-geolocation-and-geocoding/)
+* Don't use [npm install typings](http://blog.ionic.io/ionic-and-typings/)
+#### ng 2
 * Book: [angular-2-from-theory-to-practice](https://codecraft.tv/assets/resources/angular-2-from-theory-to-practice-v1.0.1.pdf)
+* [ng generate](https://github.com/angular/angular-cli/wiki/generate)
 * [ng2 UI components](https://ng2-ui.github.io/dist/#/getting-started)
 * [jQWidgets for ng4](http://www.jqwidgets.com/angular/)
+* [ng4 google maps component](https://angular-maps.com/guides/getting-started/)
+* [ng4 google maps sample](https://github.com/robisim74/angular-maps)
+* [ng2 getLocation sample](https://gist.github.com/sasha7/0c32f3686eb49d44ccc8)
+* [Only inject service provider in parent component](https://ionicframework.com/docs/troubleshooting/#multiple-instances-of-a-provider)
+#### Other
 * [RunKit](https://npm.runkit.com/angular2-leaflet) for exec node.js scripts having 400k npm packages pre installed.
 
 The end.

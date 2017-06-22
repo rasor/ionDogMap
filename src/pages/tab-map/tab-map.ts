@@ -8,6 +8,17 @@ import leaflet from 'leaflet';
 })
 export class TabMapPage {
   map;
+  centerUsa = {
+    lat: 37,
+    lng: -110,
+    zoom: 4
+  };
+  mapDefaults = {
+    //tileLayer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+    //maxZoom: 18,
+    zoomControlPosition: 'bottomleft',
+    attribution: 'Tiles &copy; Esri'
+  };
 
   constructor(public navCtrl: NavController) {
     this.showMap();
@@ -15,10 +26,11 @@ export class TabMapPage {
 
   showMap() {
       setTimeout(() => {
-          this.map = leaflet.map("map").setView([42.361132, -71.070876], 14);
-          leaflet.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-              attribution: 'Tiles &copy; Esri'
-          }).addTo(this.map);
+          this.map = leaflet.map("map").setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom);
+          leaflet.tileLayer(
+            'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+            this.mapDefaults)
+          .addTo(this.map);
           //this.showMarkers();
       })
   }
