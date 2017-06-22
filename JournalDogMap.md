@@ -93,6 +93,7 @@ ionic generate provider geolocation
 #### VS Code SCM:
 git commit : mapDefaults added, GeolocationProvider added
 git commit : GeolocationProvider.getLocation() called in map
+git commit : tab-map can center to location and add marker
 
 ## Notes ############################################
 #### ngx.leaflet.components

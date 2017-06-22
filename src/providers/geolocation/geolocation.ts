@@ -25,9 +25,8 @@ export class GeolocationProvider {
   public currPos: any;
   //constructor(public http: Http) {
   constructor() {
-    console.log('Hello GeolocationProvider Provider');
+    console.info('GeolocationProvider ctor');
   }
-
 
 	/**
 	 * Obtains the geographic position, in terms of latitude and longitude coordinates, of the device.
@@ -54,15 +53,15 @@ export class GeolocationProvider {
 					},
 					(error) => {
 						switch (error.code) {
-							case 1:
+							case error.PERMISSION_DENIED:
                 {throw new Error(GEOLOCATION_ERRORS['errors.location.permissionDenied'])}
 								//observer.error(GEOLOCATION_ERRORS['errors.location.permissionDenied']);
 								//break;
-							case 2:
+							case error.POSITION_UNAVAILABLE:
                 {throw new Error(GEOLOCATION_ERRORS['errors.location.positionUnavailable'])}
 								//observer.error(GEOLOCATION_ERRORS['errors.location.positionUnavailable']);
 								//break;
-							case 3:
+							case error.TIMEOUT:
                 {throw new Error(GEOLOCATION_ERRORS['errors.location.timeout'])}
 								//observer.error(GEOLOCATION_ERRORS['errors.location.timeout']);
 								//break;
@@ -78,15 +77,17 @@ export class GeolocationProvider {
     return promise;
   }
 
+  //Demo caller
   callGetLocation(){
     this.getLocation({})
-      .then((pos) => {
+      .then((pos: Position) => {
         console.log(pos);
         this.currPos = pos;
       })
       .catch((err) => console.error(err));
   }
 
+  //Promise snippet
   error = true;
   doAsyncTask() {
     var promise = new Promise((resolve, reject) => {
