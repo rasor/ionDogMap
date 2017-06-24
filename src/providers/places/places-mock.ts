@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 //import 'rxjs/add/operator/map';
 import placesMockData from './places-mock-data';
 
@@ -9,8 +9,12 @@ import placesMockData from './places-mock-data';
 @Injectable()
 export class PlacesProvider {
 
-  constructor(public http: Http) {
+  //constructor(public http: Http) {
+  constructor() {
     console.log('PlacesProvider mock ctor');
   }
 
+  public findAll(){
+
+  };
 }

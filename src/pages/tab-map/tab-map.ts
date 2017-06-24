@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import leaflet from 'leaflet';
 import { GeolocationProvider } from '../../providers/geolocation/geolocation';
+import { PlacesProvider } from '../../providers/places/places-mock';
 
 @Component({
   selector: 'page-tab-map',
   templateUrl: 'tab-map.html',
-  providers: [GeolocationProvider]
+  providers: [
+    GeolocationProvider,
+    PlacesProvider
+  ]
 })
-export class TabMapPage {
+
+// Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+export class TabMapPage implements OnInit {
   map: L.Map;
-  centerUsa = {
+  places: Array<any>;
+
+  centerUsa :any = {
     lat: 37,
     lng: -110,
     zoom: 4
@@ -21,13 +29,22 @@ export class TabMapPage {
     //zoomControlPosition: 'bottomleft', //not used in ng2
     attribution: 'Tiles &copy; Esri'
   };
-  _geoSvc: GeolocationProvider;
 
-  constructor(public navCtrl: NavController, public geoSvc: GeolocationProvider) {
-    this._geoSvc = geoSvc;
+  constructor(
+    public navCtrl: NavController,
+    public geoSvc: GeolocationProvider,
+    public placesSvc: PlacesProvider
+    )
+  {
     this.showMap();
     this.setCurrPos();
-    //this.showMarkers();
+    this.findAll(this.centerUsa);
+  }
+
+  public ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.showMarkers();
   }
 
   showMap() {
@@ -43,7 +60,7 @@ export class TabMapPage {
 
   //Center map to your location and zoom in and show your location
   setCurrPos(){
-    this._geoSvc.getLocation({})
+    this.geoSvc.getLocation({})
       .then((pos: Position) => {
         console.log(pos);
         this.centerUsa.lat = pos.coords.latitude;
@@ -67,8 +84,35 @@ export class TabMapPage {
         console.error('getLocation() failed:'+JSON.stringify(err));
         //Center to default place if any error
         this.map.setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom);
-        //console.error(err);
       });
+  }
+
+  /*
+    Load the markers from the places svc near center
+    Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+  */
+  findAll(center: any){
+    // this.placesSvc.findAll()
+    //   .then(data => this.places = data)
+    //   .catch((err) => {
+    //     console.error('getLocation() failed:'+JSON.stringify(err));
+    //   });
+  }
+
+  // show the loaded markers.
+  showMarkers(){
+    // if (this.markersGroup) {
+    //   this.map.removeLayer(this.markersGroup);
+    // }
+    // this.markersGroup = leaflet.layerGroup([]);
+    // this.properties.forEach(property => {
+    //     if (property.lat, property.long) {
+    //         let marker: any = leaflet.marker([property.lat, property.long]).on('click', event => this.openPropertyDetail(event.target.data));
+    //         marker.data = property;
+    //         this.markersGroup.addLayer(marker);
+    //     }
+    // });
+    // this.map.addLayer(this.markersGroup);
   }
 
 }
