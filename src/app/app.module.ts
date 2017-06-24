@@ -12,6 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
+import { PlacesProvider } from '../providers/places/places-mock';
 
 //npm
 //import { CandTLeafletComponent  } from 'ngx.leaflet.components';
@@ -45,7 +46,8 @@ import { GeolocationProvider } from '../providers/geolocation/geolocation';
     SplashScreen,
     //CandTLeafletService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GeolocationProvider
+    GeolocationProvider,
+    PlacesProvider
   ]
 })
 export class AppModule {}

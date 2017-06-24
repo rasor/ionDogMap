@@ -95,6 +95,13 @@ git commit : mapDefaults added, GeolocationProvider added
 git commit : GeolocationProvider.getLocation() called in map
 git commit : tab-map can center to location and add marker
 
+#### VS Code Shell 1:
+```
+ionic generate provider places
+```
+#### VS Code SCM:
+git commit : Copied places-mock-data from ionCrawling
+
 ## Notes ############################################
 #### ngx.leaflet.components
 * Perhaps use [ngx.leaflet.components](https://www.npmjs.com/package/ngx.leaflet.components)
