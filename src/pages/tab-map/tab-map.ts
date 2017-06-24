@@ -13,9 +13,12 @@ import { PlacesProvider } from '../../providers/places/places-mock';
   ]
 })
 
-// Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+/**
+ * Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+ */
 export class TabMapPage implements OnInit {
   map: L.Map;
+  markersGroup;//: leaflet.LayerGroup;
   places: Array<any>;
 
   centerUsa :any = {
@@ -44,7 +47,7 @@ export class TabMapPage implements OnInit {
   public ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.showMarkers();
+    //this.showMarkers();
   }
 
   showMap() {
@@ -55,8 +58,8 @@ export class TabMapPage implements OnInit {
             'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
             this.mapDefaults)
           .addTo(this.map);
-      })
-  }
+      });
+  };
 
   //Center map to your location and zoom in and show your location
   setCurrPos(){
@@ -85,34 +88,42 @@ export class TabMapPage implements OnInit {
         //Center to default place if any error
         this.map.setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom);
       });
-  }
+  };
 
-  /*
-    Load the markers from the places svc near center
-    Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+  /**
+   * Load the markers from the places svc near center
+   * Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+   * @memberof TabMapPage
   */
   findAll(center: any){
-    // this.placesSvc.findAll()
-    //   .then(data => this.places = data)
-    //   .catch((err) => {
-    //     console.error('getLocation() failed:'+JSON.stringify(err));
-    //   });
-  }
+    this.placesSvc.findAll()
+      .then(data => this.places = data)
+      .catch((err) => {
+        console.error('getLocation() failed:'+JSON.stringify(err));
+      });
+  };
 
-  // show the loaded markers.
+  /**
+   * Show the loaded markers.
+   * Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
+   * and from /ionCrawling/www/js/controllers.js
+   * @memberof TabMapPage
+   */
   showMarkers(){
-    // if (this.markersGroup) {
-    //   this.map.removeLayer(this.markersGroup);
-    // }
-    // this.markersGroup = leaflet.layerGroup([]);
-    // this.properties.forEach(property => {
-    //     if (property.lat, property.long) {
-    //         let marker: any = leaflet.marker([property.lat, property.long]).on('click', event => this.openPropertyDetail(event.target.data));
-    //         marker.data = property;
-    //         this.markersGroup.addLayer(marker);
-    //     }
-    // });
-    // this.map.addLayer(this.markersGroup);
-  }
-
+    if (this.markersGroup) {
+      this.map.removeLayer(this.markersGroup);
+    }
+    this.markersGroup = leaflet.layerGroup([]);
+    this.places.forEach(place => {
+      let coords = place.coords.split(', ');
+      place.lat = parseFloat(coords[0]);
+      place.long = parseFloat(coords[1]);
+      if (place.lat, place.long) {
+        let marker: leaflet.Marker = leaflet.marker([place.lat, place.long]);//.on('click', event => this.openPlaceDetail(event.target.data));
+        //marker.data = place;
+        this.markersGroup.addLayer(marker);
+      }
+    });
+    this.map.addLayer(this.markersGroup);
+  };
 }

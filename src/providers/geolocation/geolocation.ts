@@ -22,7 +22,6 @@ const GEOLOCATION_ERRORS = {
 @Injectable()
 export class GeolocationProvider {
 
-  public currPos: any;
   //constructor(public http: Http) {
   constructor() {
     console.info('GeolocationProvider ctor');
@@ -78,6 +77,7 @@ export class GeolocationProvider {
   }
 
   //Demo caller
+  public currPos: Position;
   callGetLocation(){
     this.getLocation({})
       .then((pos: Position) => {

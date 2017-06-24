@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { Http } from '@angular/http';
 //import 'rxjs/add/operator/map';
-import placesMockData from './places-mock-data';
+import places from './places-mock-data';
 
 /*
   Copy from \dreamhouse-mobile-ionic\src\providers\property-service-mock.ts
@@ -14,7 +14,8 @@ export class PlacesProvider {
     console.log('PlacesProvider mock ctor');
   }
 
+  // Copy from \dreamhouse-mobile-ionic\src\providers\property-service-mock.ts
   public findAll(){
-
+    return Promise.resolve(places);
   };
 }

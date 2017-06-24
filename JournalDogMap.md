@@ -102,6 +102,7 @@ ionic generate provider places
 #### VS Code SCM:
 git commit : Copied places-mock-data from ionCrawling
 git commit : Added to tab-map: findAll(center: any)
+git commit : tab-map: showMarkers() - tmp commit
 
 ## Notes ############################################
 #### ngx.leaflet.components
