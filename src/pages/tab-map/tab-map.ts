@@ -39,26 +39,29 @@ export class TabMapPage implements OnInit {
     public placesSvc: PlacesProvider
     )
   {
-    this.showMap();
-    this.setCurrPos();
-    this.findAll(this.centerUsa);
   }
 
   public ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    //this.showMarkers();
+
+    this.showMap()
+      .then(() => this.setCurrPos())
+      .then(() => this.findAll(this.centerUsa))
+      .then(() => this.showMarkers())
+      .catch((err) => {
+        console.error('showMap() or following failed:'+JSON.stringify(err));
+      });
   }
 
   showMap() {
-      setTimeout(() => {
-          var mapOpts: L.MapOptions = {};
-          this.map = L.map("map", mapOpts);//.setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom);
-          leaflet.tileLayer(
-            'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
-            this.mapDefaults)
-          .addTo(this.map);
-      });
+      var mapOpts: L.MapOptions = {};
+      this.map = L.map("map", mapOpts);//.setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom);
+      leaflet.tileLayer(
+        'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+        this.mapDefaults)
+      .addTo(this.map);
+      return Promise.resolve("done");
   };
 
   //Center map to your location and zoom in and show your location
