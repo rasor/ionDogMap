@@ -81,7 +81,14 @@ export class TabMapPage implements OnInit {
         this.map.setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom, panOpts);
 
         //Add marker
-        var markerOpts: L.MarkerOptions = {draggable: false, title: 'Here you are', clickable: true};
+        //var markerOpts: L.MarkerOptions = {draggable: false, title: 'Here you are', clickable: true};
+        var markerOpts: any = {draggable: false, title: 'Here you are', clickable: true
+          ,
+          // icon: L.icon.glyph({
+          //   prefix: '',
+          //   glyph: 'A'
+          // })
+        };
         var marker = L.marker([pos.coords.latitude, pos.coords.longitude], markerOpts);
         marker.bindPopup(markerOpts.title).openPopup();
         marker.addTo(this.map);
@@ -123,6 +130,7 @@ export class TabMapPage implements OnInit {
       place.long = parseFloat(coords[1]);
       if (place.lat, place.long) {
         let marker: leaflet.Marker = leaflet.marker([place.lat, place.long]);//.on('click', event => this.openPlaceDetail(event.target.data));
+        marker.bindPopup(place.name + ' (' + place.venueTypes[0] + ')').openPopup();
         //marker.data = place;
         this.markersGroup.addLayer(marker);
       }
