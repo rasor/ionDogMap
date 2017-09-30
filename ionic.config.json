@@ -1,5 +1,6 @@
 {
   "name": "ionDogMap",
   "app_id": "e920c5f0",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }
