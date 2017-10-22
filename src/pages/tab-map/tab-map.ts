@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import leaflet from 'leaflet';
+import * as L from 'leaflet';
 import { GeolocationProvider } from '../../providers/geolocation/geolocation';
 import { PlacesProvider } from '../../providers/places/places-mock';
 
