@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import leaflet from 'leaflet';
 import * as L from 'leaflet';
+//import L2 from 'leaflet.icon.glyph';
 import { GeolocationProvider } from '../../providers/geolocation/geolocation';
 import { PlacesProvider } from '../../providers/places/places-mock';
 
@@ -17,9 +18,9 @@ import { PlacesProvider } from '../../providers/places/places-mock';
 /**
  * Copy from \dreamhouse-mobile-ionic\src\pages\property-list\property-list.ts
  */
-export class TabMapPage implements OnInit {
+export class TabMapPage implements OnInit  {
   map: L.Map;
-  markersGroup;//: leaflet.LayerGroup;
+  markersGroup: leaflet.LayerGroup;
   places: Array<any>;
 
   centerUsa :any = {
@@ -82,13 +83,13 @@ export class TabMapPage implements OnInit {
         this.map.setView([this.centerUsa.lat, this.centerUsa.lng], this.centerUsa.zoom, panOpts);
 
         //Add marker
-        //var markerOpts: L.MarkerOptions = {draggable: false, title: 'Here you are', clickable: true};
-        var markerOpts: any = {draggable: false, title: 'Here you are', clickable: true
+//        var markerOpts1: L.MarkerOptions = {draggable: false, title: 'Here you are', clickable: true};
+        var markerOpts: L.MarkerOptions = {draggable: false, title: 'Here you are', clickable: true
           ,
-          // icon: L.icon.glyph({
-          //   prefix: '',
-          //   glyph: 'A'
-          // })
+          icon: (L as any).icon.glyph({
+            prefix: '',
+            glyph: 'A'
+          })
         };
         var marker = L.marker([pos.coords.latitude, pos.coords.longitude], markerOpts);
         marker.bindPopup(markerOpts.title).openPopup();
